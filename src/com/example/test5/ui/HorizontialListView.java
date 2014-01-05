@@ -20,6 +20,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.Scroller;
+import android.widget.Toast;
 
 public class HorizontialListView extends AdapterView<ListAdapter> {
 
@@ -58,11 +59,14 @@ public class HorizontialListView extends AdapterView<ListAdapter> {
 	@Override
 	public void setOnItemSelectedListener(AdapterView.OnItemSelectedListener listener) {
 		mOnItemSelected = listener;
+		
+    	Toast.makeText(getContext(),"pic selected",Toast.LENGTH_SHORT).show();
 	}
 	
 	@Override
 	public void setOnItemClickListener(AdapterView.OnItemClickListener listener){
 		mOnItemClicked = listener;
+	  	Toast.makeText(getContext(),"pic selected",Toast.LENGTH_SHORT).show();
 	}
 	
 	private DataSetObserver mDataObserver = new DataSetObserver() {
@@ -306,6 +310,7 @@ public class HorizontialListView extends AdapterView<ListAdapter> {
 
 		@Override
 		public boolean onSingleTapConfirmed(MotionEvent e) {
+		  	/*Toast.makeText(getContext(),"pic selected",Toast.LENGTH_SHORT).show();	*/
 			Rect viewRect = new Rect();
 			for(int i=0;i<getChildCount();i++){
 				View child = getChildAt(i);
